@@ -1,0 +1,228 @@
+$nav-height: 80px;
+$nav-height-mobile: 70px;
+$transition: all 0.25s ease;
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: $nav-height;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: $transition;
+
+  &.scrolled {
+    border-bottom-color: var(--color-gray-200);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  @media (max-width: 767px) {
+    height: $nav-height-mobile;
+  }
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 2rem;
+}
+
+/* ── Logo ── */
+.nav__logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav__logo-img {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  /* Slight drop shadow so the logo pops on white nav */
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15));
+}
+
+.nav__logo-fallback {
+  display: none;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.nav__logo-icon {
+  flex-shrink: 0;
+}
+
+.nav__logo-name {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.nav__logo-sub {
+  font-family: var(--font-heading);
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.12em;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+/* ── Desktop Links ── */
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0 auto;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.nav__link {
+  padding: 0.4rem 0.85rem;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-gray-700);
+  border-radius: var(--radius-sm);
+  transition: $transition;
+  position: relative;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    right: 50%;
+    height: 2px;
+    background: var(--color-accent);
+    transition: $transition;
+    border-radius: 2px;
+  }
+
+  &:hover {
+    color: var(--color-primary);
+    &::after { left: 0.85rem; right: 0.85rem; }
+  }
+
+  &.active {
+    color: var(--color-primary);
+    &::after { left: 0.85rem; right: 0.85rem; }
+  }
+}
+
+/* ── Desktop CTA ── */
+.nav__cta {
+  flex-shrink: 0;
+  margin-left: auto;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.nav__call-btn {
+  svg { transition: $transition; }
+  &:hover svg { transform: rotate(-10deg); }
+}
+
+/* ── Hamburger ── */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+  margin-left: auto;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: $transition;
+
+  @media (max-width: 900px) {
+    display: flex;
+  }
+
+  span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-gray-700);
+    border-radius: 2px;
+    transition: $transition;
+    transform-origin: center;
+  }
+
+  &.open {
+    span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+}
+
+/* ── Mobile Menu ── */
+.nav__mobile {
+  position: fixed;
+  top: $nav-height-mobile;
+  left: 0;
+  right: 0;
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+
+  &.open {
+    max-height: 520px;
+  }
+
+  @media (min-width: 901px) {
+    display: none;
+  }
+}
+
+.nav__mobile-inner {
+  padding: 1rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nav__mobile-link {
+  padding: 0.85rem 0;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-gray-700);
+  border-bottom: 1px solid var(--color-gray-100);
+  transition: $transition;
+  text-decoration: none;
+
+  &:hover, &.active {
+    color: var(--color-primary);
+    padding-left: 0.5rem;
+  }
+}
+
+.nav__mobile-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+
+  .btn { flex: 1; min-width: 120px; text-align: center; }
+}

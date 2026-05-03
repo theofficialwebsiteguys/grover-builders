@@ -1,0 +1,199 @@
+/* ── Filter Tabs ── */
+.filter-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.filter-tab {
+  padding: 0.55rem 1.25rem;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 2px solid var(--color-gray-200);
+  border-radius: 100px;
+  background: var(--color-white);
+  color: var(--color-gray-600);
+  cursor: pointer;
+  transition: var(--transition);
+
+  &:hover {
+    border-color: var(--color-primary-light);
+    color: var(--color-primary);
+  }
+
+  &.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-white);
+  }
+}
+
+/* ── Portfolio Grid ── */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+
+  @media (max-width: 900px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 560px) { grid-template-columns: 1fr; }
+}
+
+.portfolio-item__img-wrap {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-gray-200), var(--color-gray-300));
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  &.no-img::after {
+    content: 'Photo Coming Soon';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gray-400);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+  }
+
+  &:hover {
+    img { transform: scale(1.06); }
+    .portfolio-item__overlay { opacity: 1; }
+  }
+}
+
+.portfolio-item__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.1) 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portfolio-item__category {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+  margin-bottom: 0.3rem;
+}
+
+.portfolio-item__title {
+  color: var(--color-white);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.portfolio-item__desc {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+}
+
+.portfolio-empty {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: 3rem 0;
+}
+
+/* ── Portfolio Testimonials ── */
+.portfolio-testimonials {
+  background: var(--color-gray-50);
+}
+
+.pt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+
+  @media (max-width: 900px) { grid-template-columns: 1fr; }
+}
+
+.pt-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  position: relative;
+  transition: var(--transition);
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    border-color: transparent;
+  }
+}
+
+.pt-card__quote-mark {
+  font-family: Georgia, serif;
+  font-size: 5rem;
+  line-height: 0.8;
+  color: var(--color-gray-100);
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.pt-card blockquote {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.pt-card__author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+
+  strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  span {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+  }
+}
+
+.pt-card__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pt-card__stars {
+  display: flex;
+  gap: 2px;
+}

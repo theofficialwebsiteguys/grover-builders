@@ -1,0 +1,213 @@
+/* ── Story Section ── */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.story-img-wrap {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--color-gray-200);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &.no-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-gray-200), var(--color-gray-300));
+
+    &::after {
+      content: 'Company Photo';
+      color: var(--color-gray-400);
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.story-img-badge {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-white);
+  border-radius: var(--radius);
+  padding: 0.85rem 1.1rem;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.badge-num {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.badge-text {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.story-content {
+  p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.75;
+  }
+}
+
+.story-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-gray-200);
+  flex-wrap: wrap;
+}
+
+.story-stat {
+  strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+  span {
+    font-size: 0.8rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+}
+
+/* ── Values ── */
+.values-section {
+  background: var(--color-gray-50);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+
+  @media (max-width: 1000px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 560px)  { grid-template-columns: 1fr; }
+}
+
+.value-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem;
+  transition: var(--transition);
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary-light);
+    transform: translateY(-3px);
+  }
+}
+
+.value-card__num {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--color-gray-100);
+  line-height: 1;
+  margin-bottom: 0.85rem;
+}
+
+.value-card__title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 0.6rem;
+}
+
+.value-card__desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+/* ── Clients ── */
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+
+  @media (max-width: 768px) { grid-template-columns: 1fr; }
+}
+
+.client-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  text-align: center;
+  transition: var(--transition);
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    border-color: transparent;
+    transform: translateY(-3px);
+
+    .client-card__icon {
+      background: var(--color-primary);
+      svg { stroke: white; }
+    }
+  }
+}
+
+.client-card__icon {
+  width: 72px;
+  height: 72px;
+  background: rgba(30, 58, 138, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  transition: var(--transition);
+
+  svg { stroke: var(--color-primary); }
+}
+
+.client-card__title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+.client-card__desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
