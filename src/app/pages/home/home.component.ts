@@ -64,12 +64,12 @@ export class HomeComponent {
   ];
 
   projects = [
-    { src: '/images/project-1.jpg', label: 'Custom Home Build', category: 'Residential' },
-    { src: '/images/project-2.jpg', label: 'Custom Home — Rear View', category: 'Residential' },
-    { src: '/images/project-3.jpg', label: 'Screened Porch Addition', category: 'Residential' },
-    { src: '/images/project-6.jpg', label: 'Framing & New Construction', category: 'Framing' },
-    { src: '/images/project-7.jpg', label: 'Active Build Site', category: 'Framing' },
-    { src: '/images/project-4.jpg', label: 'Screened Sunroom', category: 'Residential' },
+    { src: 'images/project-1.jpg', label: 'Custom Home Build', category: 'Residential' },
+    { src: 'images/project-2.jpg', label: 'Custom Home — Rear View', category: 'Residential' },
+    { src: 'images/project-3.jpg', label: 'Screened Porch Addition', category: 'Residential' },
+    { src: 'images/project-6.jpg', label: 'Framing & New Construction', category: 'Framing' },
+    { src: 'images/project-7.jpg', label: 'Active Build Site', category: 'Framing' },
+    { src: 'images/project-4.jpg', label: 'Screened Sunroom', category: 'Residential' },
   ];
 
   testimonials = [

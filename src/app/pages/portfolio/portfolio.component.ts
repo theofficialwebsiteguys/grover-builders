@@ -22,15 +22,15 @@ export class PortfolioComponent {
   activeCategory = signal<Category>('All');
 
   projects: Project[] = [
-    { src: '/images/project-1.jpg', title: 'Custom Home — Front Elevation', category: 'Residential', desc: 'Full custom build, gray vinyl siding & skylights' },
-    { src: '/images/project-2.jpg', title: 'Custom Home — Rear & Deck', category: 'Residential', desc: 'Multi-level deck with hydroseeded lawn' },
-    { src: '/images/project-3.jpg', title: 'Screened Porch Addition', category: 'Residential', desc: 'Elevated screened sunroom on timber posts' },
-    { src: '/images/project-4.jpg', title: 'Screened Sunroom — Side View', category: 'Residential', desc: 'Custom structural framing & screen enclosure' },
-    { src: '/images/project-5.jpg', title: 'Sunroom — Aerial View', category: 'Renovation', desc: 'Addition to existing lakeside cottage' },
-    { src: '/images/project-6.jpg', title: 'New Construction Framing', category: 'Framing', desc: 'ZIP System sheathing, concrete foundation' },
-    { src: '/images/project-7.jpg', title: 'Active Build Site', category: 'Framing', desc: 'Multi-unit residential framing' },
-    { src: '/images/project-8.jpg', title: 'Telehandler Operations', category: 'Framing', desc: 'Heavy-lift framing operations' },
-    { src: '/images/project-9.jpg', title: 'Interior Renovation', category: 'Renovation', desc: 'LVP flooring & trim package' },
+    { src: 'images/project-1.jpg', title: 'Custom Home — Front Elevation', category: 'Residential', desc: 'Full custom build, gray vinyl siding & skylights' },
+    { src: 'images/project-2.jpg', title: 'Custom Home — Rear & Deck', category: 'Residential', desc: 'Multi-level deck with hydroseeded lawn' },
+    { src: 'images/project-3.jpg', title: 'Screened Porch Addition', category: 'Residential', desc: 'Elevated screened sunroom on timber posts' },
+    { src: 'images/project-4.jpg', title: 'Screened Sunroom — Side View', category: 'Residential', desc: 'Custom structural framing & screen enclosure' },
+    { src: 'images/project-5.jpg', title: 'Sunroom — Aerial View', category: 'Renovation', desc: 'Addition to existing lakeside cottage' },
+    { src: 'images/project-6.jpg', title: 'New Construction Framing', category: 'Framing', desc: 'ZIP System sheathing, concrete foundation' },
+    { src: 'images/project-7.jpg', title: 'Active Build Site', category: 'Framing', desc: 'Multi-unit residential framing' },
+    { src: 'images/project-8.jpg', title: 'Telehandler Operations', category: 'Framing', desc: 'Heavy-lift framing operations' },
+    { src: 'images/project-9.jpg', title: 'Interior Renovation', category: 'Renovation', desc: 'LVP flooring & trim package' },
   ];
 
   filtered = computed(() => {
